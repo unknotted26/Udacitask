@@ -1,0 +1,10 @@
+# new_features.txt
+ideas: Save the list to a file, and load the list file if one already exists.
+       Allow multiple users to create their own to-do lists.
+       Add due dates, optional due dates, times, etc.
+
+Feature #1:
+
+Feature #2:
+
+Feature #3:
