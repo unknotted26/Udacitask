@@ -20,7 +20,11 @@ class TodoList
 
   def display_list
     puts "List title: #{title}"
-    puts "List items: #{items}"
+    puts "List items:"
+    items.each do |item|
+      puts "  Description: #{item.description}"
+      puts "  Completed?   #{item.completion_status}"
+    end
   end
 end
 
