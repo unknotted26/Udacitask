@@ -42,7 +42,27 @@ class TodoList
   def update_title(newTitle)
     @title = newTitle
   end
-end
+
+  def export_to_file(fileName)
+    if File.exist?(fileName)
+      print "#{fileName} (created on #{File.mtime(fileName).strftime("%v %r")}) exists."
+      print " Do you want to overwrite?(y/n) "
+      input = gets().chomp()
+      input.eql?("y"){ writing_to_file(fileName) }
+    else
+      writing_to_file(fileName)
+    end
+  end
+
+  def writing_to_file(fileName)
+    f = File.open(fileName, 'w')#{|file| file.write(self.display_list); puts "writing"}
+    old_stdout = $stdout
+    $stdout = f
+    display_list
+    $stdout = old_stdout
+  end
+
+end # class TodoList
 
 class Item
   attr_accessor :description, :completion_status

@@ -4,7 +4,9 @@ ideas: Save the list to a file, and load the list file if one already exists.
        Add due dates, optional due dates, times, etc.
 
 Feature #1:
+Saving list to a file. It prevents overwriting an existing file without permission.
 
 Feature #2:
+
 
 Feature #3:

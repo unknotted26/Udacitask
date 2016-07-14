@@ -33,3 +33,5 @@ list.update_title("New List Title")
 
 # Print the list
 list.display_list
+
+list.export_to_file("export.txt")
