@@ -8,7 +8,7 @@ For this project, you're going to create a command line to-do list using object 
 
 Before submitting, ensure your program has the following:
 
-* Methods for creating a list, naming a list, and renaming a list.
+* Methods for creating a list, naming a list, and renaming a list. 
 * Methods for adding items to and deleting items from a list.
 * Methods for updating the completion status of an item. (If it’s not done, mark it as done, and vice versa.)
 * At least one method that returns a boolean (ex. `def completed?`).

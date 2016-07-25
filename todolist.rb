@@ -1,7 +1,4 @@
 =begin
-Methods for creating a list, naming a list, and renaming a list.
-Methods for adding items to and deleting items from a list.
-Methods for updating the completion status of an item. (If it’s not done, mark it as done, and vice versa.)
 At least one method that returns a boolean (ex. def completed?).
 Print methods for each of the classes that create a nicely formatted to-do list format.
 =end
@@ -13,10 +10,6 @@ class TodoList
     @items = Array.new
   end
 
-  def add_item(new_item)
-    item = Item.new(new_item)
-    @items.push(item)
-  end
 
   def display_list
     puts "---------------"
@@ -29,18 +22,34 @@ class TodoList
       puts "   Completed?   #{item.completion_status}"
       itemCount = itemCount + 1
     end
+    print "\n"
+  end
+  ########################
+  ######  MUTATORS  ######
+  ########################
+
+  def update_title(newTitle)
+    @title = newTitle
+  end
+
+  def add_item(new_item)
+    item = Item.new(new_item)
+    @items.push(item)
   end
 
   def delete_first_item
     items.delete_at(0)
   end
 
-  def item_completed(item_num)
+  def mark_item_complete(item_num)
     items[item_num].completion_status = true
   end
 
-  def update_title(newTitle)
-    @title = newTitle
+  #########################
+  ######  ACCESSORS  ######
+  #########################
+  def task_completed?(item_num)
+    puts items[item_num].completion_status
   end
 
   def export_to_file(fileName)
@@ -48,20 +57,19 @@ class TodoList
       print "#{fileName} (created on #{File.mtime(fileName).strftime("%v %r")}) exists."
       print " Do you want to overwrite?(y/n) "
       input = gets().chomp()
-      input.eql?("y"){ writing_to_file(fileName) }
+      input.eql?('y'){ writing_to_file(fileName) }
     else
       writing_to_file(fileName)
     end
   end
 
   def writing_to_file(fileName)
-    f = File.open(fileName, 'w')#{|file| file.write(self.display_list); puts "writing"}
+    f = File.open(fileName, 'w')
     old_stdout = $stdout
     $stdout = f
     display_list
     $stdout = old_stdout
   end
-
 end # class TodoList
 
 class Item
