@@ -30,10 +30,12 @@ list.mark_item_complete(0)
 list.display_list
 
 # Update the title of the list
-list.update_title("BLAH TITLE")
+list.update_title("NEW LIST TITLE")
 
 # Print the list
 list.display_list
+
+list.search_by_description("Pick up Jimmy")
 
 list.delete_completed_items
 

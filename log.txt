@@ -1,3 +1,9 @@
+commit 00ea1143827c6b65c07d7d5ccbb17b29eaec53b7
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Mon Jul 25 03:02:48 2016 -0400
+
+    Added 2 more features. see new_features.txt
+
 commit e43eff48d2af0f0e6fae5e66e4cb4a8ad73e307b
 Author: Kevin Perez <unknotted26@gmail.com>
 Date:   Sun Jul 24 23:37:21 2016 -0400
