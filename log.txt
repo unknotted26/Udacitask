@@ -1,0 +1,29 @@
+commit e43eff48d2af0f0e6fae5e66e4cb4a8ad73e307b
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Sun Jul 24 23:37:21 2016 -0400
+
+    Added several mutator methods to TodoList
+
+commit c1aca44a2af86fdb89a316e2596bce09889106d5
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Thu Jul 14 13:06:01 2016 -0400
+
+    List can now be exported to a file
+
+commit 77d77d12f89b592c605acb794fc9aa854a69b676
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Tue Jul 12 21:49:33 2016 -0400
+
+    added functions to class TodoList
+
+commit 5ebe99b064a96311358fb7f05109cdc46242d5ab
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Mon Jul 11 16:36:28 2016 -0400
+
+    Completed TodoList::displayList()
+
+commit f77b045737b0d3e1a2c419b054e7ead53ad59a4a
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Wed Jul 6 13:20:58 2016 -0400
+
+    first commit

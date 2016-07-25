@@ -1,26 +1,24 @@
-=begin
-At least one method that returns a boolean (ex. def completed?).
-Print methods for each of the classes that create a nicely formatted to-do list format.
-=end
 class TodoList
   attr_accessor :title, :items
 
   def initialize(listTitle)
     @title = listTitle
     @items = Array.new
+    @created = Time.now.asctime
   end
 
 
   def display_list
-    puts "---------------"
-    puts " #{title}"
-    puts "---------------"
-    itemCount = 1
+    puts "-------------------"
+    print " #{title}   "
+    puts "created #{@created}"
+    puts "-------------------"
+    itemNumber = 1
     items.each do |item|
-      print "#{itemCount}."
+      print "#{itemNumber}."
       puts " Description: #{item.description}"
       puts "   Completed?   #{item.completion_status}"
-      itemCount = itemCount + 1
+      itemNumber += 1
     end
     print "\n"
   end
@@ -41,6 +39,10 @@ class TodoList
     items.delete_at(0)
   end
 
+  def delete_completed_items
+    items.reject!{|item| item.completion_status}
+  end
+
   def mark_item_complete(item_num)
     items[item_num].completion_status = true
   end
@@ -56,19 +58,43 @@ class TodoList
     if File.exist?(fileName)
       print "#{fileName} (created on #{File.mtime(fileName).strftime("%v %r")}) exists."
       print " Do you want to overwrite?(y/n) "
-      input = gets().chomp()
-      input.eql?('y'){ writing_to_file(fileName) }
-    else
+      input = gets.chomp
+
+      if input.eql?("y")
+        writing_to_file(fileName)
+        puts "#{fileName} has been overwritten."
+      end
+    else  # create new file
       writing_to_file(fileName)
     end
   end
 
   def writing_to_file(fileName)
-    f = File.open(fileName, 'w')
-    old_stdout = $stdout
-    $stdout = f
-    display_list
-    $stdout = old_stdout
+    File.open(fileName, 'w') do |fstream|
+      old_stdout = $stdout
+      $stdout = fstream  # puts/print output to file
+      display_list
+      $stdout = old_stdout
+      fstream.close
+    end
+  end
+
+  def show_incomplete_items
+    puts "Incompleted tasks for list '#{title}'"
+    items.each do |item|
+      if(item.completion_status)
+        puts item.description
+      end
+    end
+    print "\n"
+  end
+
+  def search_by_description(descript)
+    item_index = items.index{|details| details.description == descript}
+    if item_index
+      puts "#{item_index}. Description: #{items[item_index].description}"
+      puts "   Completion status: #{items[item_index].completion_status}"
+    end
   end
 end # class TodoList
 
@@ -78,6 +104,5 @@ class Item
     @description = item_description
     @completion_status = false
   end
-
 
 end

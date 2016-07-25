@@ -1,12 +1,17 @@
 # new_features.txt
-ideas: Save the list to a file, and load the list file if one already exists.
+ideas: Load the list file if one already exists.
        Allow multiple users to create their own to-do lists.
        Add due dates, optional due dates, times, etc.
 
 Feature #1:
-Saving list to a file. It prevents overwriting an existing file without permission.
+Saving list to a file. If the file already exists, the user is prompted if
+they want to overwrite it.
 
 Feature #2:
-
+def search_by_description(description)
+Search by description. The description must match exactly the description on the list.
+The function prints the item's index within the list, description, and completion status.
 
 Feature #3:
+
+Delete all completed items.
