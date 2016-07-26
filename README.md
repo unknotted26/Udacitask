@@ -27,3 +27,9 @@ Before submitting your project for evaluation, we recommend that you check that 
 * You completed your project according to the instructions
 * You checked your project against the [rubric](https://review.udacity.com/#!/projects/5605865838/rubric)
 * Create a zip file with your project files. For instructions on how to do this, click here. When you feel ready to submit, use the blue 'Submit Project' button below!
+
+# Suggestions (credit goes to Udacity)
+ - For def display_list: Instead of copying the logic that prints out the title and adds the list numbering, you 
+ could create a single function (this one would work), and then pass an array of items depending on how your other methods are filtering the list.
+ 
+ - 

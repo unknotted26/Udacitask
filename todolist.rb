@@ -85,7 +85,7 @@ class TodoList
   def show_incomplete_items
     puts "Incompleted tasks for list '#{title}'"
     items.each do |item|
-      if(item.completion_status)
+      if(!item.completion_status)
         puts item.description
       end
     end
