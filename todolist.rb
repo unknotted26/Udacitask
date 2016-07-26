@@ -8,17 +8,22 @@ class TodoList
   end
 
 
-  def display_list
+  def display_list(item_array)
     puts "-------------------"
     print " #{title}   "
     puts "created #{@created}"
     puts "-------------------"
-    items.each_with_index do |item, index|
+    display_item(item_array)
+  end
+
+  def display_item(item_array)
+    item_array.each_with_index do |item, index|
       print "%d." %[index+1]
       item.display_item
     end
     print "\n"
   end
+
   ########################
   ######  MUTATORS  ######
   ########################
@@ -57,26 +62,26 @@ class TodoList
     items[item_num-1].completion_status #returns true/false
   end
 
-  def export_to_file(fileName)
+  def export_to_file(fileName, item_array)
     if File.exist?(fileName)
       print "#{fileName} (created on #{File.mtime(fileName).strftime("%v %r")}) exists."
       print " Do you want to overwrite?(y/n) "
       input = gets.chomp
 
       if input.eql?("y")
-        writing_to_file(fileName)
+        writing_to_file(fileName, item_array)
         puts "#{fileName} has been overwritten."
       end
     else  # create new file
-      writing_to_file(fileName)
+      writing_to_file(fileName, item_array)
     end
   end
 
-  def writing_to_file(fileName)
+  def writing_to_file(fileName, item_array)
     File.open(fileName, 'w') do |fstream|
       old_stdout = $stdout
       $stdout = fstream  # puts/print output to file
-      display_list
+      display_list(item_array)
       $stdout = old_stdout
       fstream.close
     end
