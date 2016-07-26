@@ -15,7 +15,7 @@ class TodoList
     puts "-------------------"
     items.each_with_index do |item, index|
       print "%d." %[index+1]
-      item.display_task
+      item.display_item
     end
     print "\n"
   end
@@ -33,7 +33,7 @@ class TodoList
   end
 
   def delete_item(item_number)
-    items.delete_at(item_number)
+    items.delete_at(item_number-1)
   end
 
   def delete_completed_items
@@ -41,14 +41,20 @@ class TodoList
   end
 
   def mark_item_complete(item_num)
-    items[item_num].completion_status = true
+    items[item_num-1].completion_status = true
+  end
+
+  def change_item_description(item_index)
+    print "Type new description for item #{item_index}: "
+    items[item_index-1].change_description
   end
 
   #########################
   ######  ACCESSORS  ######
   #########################
+
   def task_completed?(item_num)
-    items[item_num].completion_status
+    items[item_num-1].completion_status #returns true/false
   end
 
   def export_to_file(fileName)
@@ -90,9 +96,10 @@ class TodoList
     item_index = items.index{|details| details.description == descript}
     if item_index
       print "%d." %[item_index]
-      items[item_index].display_task
+      items[item_index].display_item
     end
   end
+
 end # class TodoList
 
 class Item
@@ -102,9 +109,13 @@ class Item
     @completion_status = false
   end
 
-  def display_task
-    puts " Description: #{description}"
-    puts "   Completed?   #{completion_status}"
+  def display_item
+    puts " Description: #{self.description}"
+    puts "   Completed?   #{self.completion_status}"
+  end
+
+  def change_description
+    self.description = gets.chomp
   end
 
 end

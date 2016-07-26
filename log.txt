@@ -1,3 +1,15 @@
+commit d3738f33d146bcdba5a220181dc4ef06230adf46
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Tue Jul 26 08:19:50 2016 -0400
+
+    Added Item::display_task() & removed TodoList::delete_first_item
+
+commit bfbec3c8a05a5e54b058e4bb8e748e9bb4d3bd1a
+Author: Kevin Perez <unknotted26@gmail.com>
+Date:   Mon Jul 25 03:06:22 2016 -0400
+
+    log.txt
+
 commit 00ea1143827c6b65c07d7d5ccbb17b29eaec53b7
 Author: Kevin Perez <unknotted26@gmail.com>
 Date:   Mon Jul 25 03:02:48 2016 -0400

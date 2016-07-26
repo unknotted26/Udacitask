@@ -9,23 +9,26 @@ list.add_item("Do Homework")
 list.add_item("Do Chores")
 list.add_item("Pick up Jimmy")
 
+# Change an item's description
+list.change_item_description(1)
+
 # Print the list
 list.display_list
 
 # Delete the first item
-list.delete_first_item
-
-# Print the list
-list.display_list
-
-# Delete the second item
 list.delete_item(1)
 
 # Print the list
 list.display_list
 
+# Delete the second item
+list.delete_item(2)
+
+# Print the list
+list.display_list
+
 # Update the completion status of the first item to complete
-list.mark_item_complete(0)
+list.mark_item_complete(1)
 
 # Print the list
 list.display_list
@@ -38,7 +41,7 @@ list.display_list
 
 list.search_by_description("Pick up Jimmy")
 
-if(list.task_completed?(0))
+if(list.task_completed?(1))
   puts "Yes it was completed."
 end
 list.delete_completed_items

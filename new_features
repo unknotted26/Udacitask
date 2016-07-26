@@ -13,5 +13,9 @@ Search by description. The description must match exactly the description on the
 The function prints the item's index within the list, description, and completion status.
 
 Feature #3:
-
 Delete all completed items.
+
+Feature #4:
+Change an item's description. This can be found in TodoList::change_description which
+calls Item::change_item_description to get the user input that change the item's
+instance variable @description.
