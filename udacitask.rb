@@ -19,7 +19,8 @@ list.delete_first_item
 list.display_list
 
 # Delete the second item
-list.delete_first_item
+list.delete_item(1)
+
 # Print the list
 list.display_list
 
@@ -37,6 +38,9 @@ list.display_list
 
 list.search_by_description("Pick up Jimmy")
 
+if(list.task_completed?(0))
+  puts "Yes it was completed."
+end
 list.delete_completed_items
 
 list.display_list

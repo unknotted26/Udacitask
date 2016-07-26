@@ -13,12 +13,9 @@ class TodoList
     print " #{title}   "
     puts "created #{@created}"
     puts "-------------------"
-    itemNumber = 1
-    items.each do |item|
-      print "#{itemNumber}."
-      puts " Description: #{item.description}"
-      puts "   Completed?   #{item.completion_status}"
-      itemNumber += 1
+    items.each_with_index do |item, index|
+      print "%d." %[index+1]
+      item.display_task
     end
     print "\n"
   end
@@ -35,8 +32,8 @@ class TodoList
     @items.push(item)
   end
 
-  def delete_first_item
-    items.delete_at(0)
+  def delete_item(item_number)
+    items.delete_at(item_number)
   end
 
   def delete_completed_items
@@ -51,7 +48,7 @@ class TodoList
   ######  ACCESSORS  ######
   #########################
   def task_completed?(item_num)
-    puts items[item_num].completion_status
+    items[item_num].completion_status
   end
 
   def export_to_file(fileName)
@@ -92,8 +89,8 @@ class TodoList
   def search_by_description(descript)
     item_index = items.index{|details| details.description == descript}
     if item_index
-      puts "#{item_index}. Description: #{items[item_index].description}"
-      puts "   Completion status: #{items[item_index].completion_status}"
+      print "%d." %[item_index]
+      items[item_index].display_task
     end
   end
 end # class TodoList
@@ -103,6 +100,11 @@ class Item
   def initialize(item_description)
     @description = item_description
     @completion_status = false
+  end
+
+  def display_task
+    puts " Description: #{description}"
+    puts "   Completed?   #{completion_status}"
   end
 
 end
